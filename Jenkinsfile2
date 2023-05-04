@@ -8,7 +8,7 @@ pipeline{
 		stage('Git-CheckOut'){
 			steps {
 				echo 'CheckOut the source code form github'
-				git branch: 'main', url: 'https://github.com/Arpithabp/Medical.git'
+				git branch: 'main', url: 'https://github.com/Arpithabp/Medicure.git'
 			}
 		}
 		stage('App Packeging'){
