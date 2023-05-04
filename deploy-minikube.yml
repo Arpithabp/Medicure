@@ -50,11 +50,10 @@
      apt:
       name: golang-go
       state: present
-   - name: Clone cri-dockerd repository
-     git:
-       repo: https://github.com/kubernetes-incubator/cri-dockerd.git
-       dest: /home/ubuntu/cri-dockerd/
-       version: master
+   - name: Build binary
+     shell: go build -o bin/cri-dockerd
+     args:
+       chdir: /home/ubuntu/cri-dockerd/
    - name: 15
      command: mkdir -p /usr/local/bin
    - name: Install cri-dockerd binary
