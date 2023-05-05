@@ -13,7 +13,7 @@ public class Seleniummedicure {
 	public static void main(String[] args) {
 		System.out.println("Welcome");
 		 //System.setProperty("webdriver.chrome.driver", "C:\\Users\\Admin\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe"); 
-		System.setProperty("webdriver.chrome.driver","/usr/bin/google-chrome");
+		System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver");
 		 ChromeOptions chromeOptions = new ChromeOptions();  
 		 chromeOptions.addArguments("--remote-allow-origins=*", "ignore-certificate-errors");
          chromeOptions.addArguments("---headless");
