@@ -11,10 +11,11 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class Seleniummedicure {
 
 	public static void main(String[] args) {
-		//System.out.println("Welcome");
+		System.out.println("Welcome");
 		 //System.setProperty("webdriver.chrome.driver", "C:\\Users\\Admin\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe"); 
-		System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver");
+		System.setProperty("webdriver.chrome.driver","/usr/bin/google-chrome");
 		 ChromeOptions chromeOptions = new ChromeOptions();  
+		 chromeOptions.addArguments("--remote-allow-origins=*", "ignore-certificate-errors");
          chromeOptions.addArguments("---headless");
          chromeOptions.addArguments("--no-Sandbox");
 		 chromeOptions.addArguments("--disable-dev-shm-usage");
@@ -37,7 +38,7 @@ public class Seleniummedicure {
          
          driver.findElement(By.className("message-box")).sendKeys("How Are You?");
          
-         driver.findElement(By.className("bin_box")).click();
+         //driver.findElement(By.className("bin_box")).click();
          		
          
         
