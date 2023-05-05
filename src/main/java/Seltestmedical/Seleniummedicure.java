@@ -11,13 +11,15 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class Seleniummedicure {
 
 	public static void main(String[] args) {
-		System.out.println("Welcome");
+		//System.out.println("Welcome");
 		 //System.setProperty("webdriver.chrome.driver", "C:\\Users\\Admin\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe"); 
-		System.setProperty("webdriver.chrome.driver",/usr/bin/chromedriver");
+		System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver");
 		 ChromeOptions chromeOptions = new ChromeOptions();  
          chromeOptions.addArguments("---headless");
          chromeOptions.addArguments("--no-Sandbox");
 		 chromeOptions.addArguments("--disable-dev-shm-usage");
+		 chromeOptions.addArguments("--remote-allow-origins=");
+		 
 		 WebDriver driver = new ChromeDriver(chromeOptions);
 		 System.out.println("welcome to selenium test scripts");
 		 driver.get("http://15.206.147.215:32006/contact.html");
@@ -34,6 +36,8 @@ public class Seleniummedicure {
          inputField2.sendKeys("arpitha2000.p@gmail.com");
          
          driver.findElement(By.className("message-box")).sendKeys("How Are You?");
+         
+         driver.findElement(By.className("bin_box")).click();
          		
          
         
