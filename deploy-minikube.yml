@@ -45,10 +45,11 @@
        owner: root
        group: root
        mode: "0755"
-   - name: Install dependencies
-     shell: go get
-     args:
-       chdir: /home/ubuntu/cri-dockerd/
+   - name: Install Go
+     become: true
+     apt:
+      name: golang-go
+      state: present
    - name: Build binary
      shell: go build -o bin/cri-dockerd
      args:

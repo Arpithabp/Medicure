@@ -8,7 +8,7 @@ pipeline{
 		stage('Git-CheckOut'){
 			steps {
 				echo 'CheckOut the source code form github'
-				git branch: 'main', url: 'https://github.com/Arpithabp/Medical.git'
+				git branch: 'main', url: 'https://github.com/Arpithabp/Medicure.git'
 			}
 		}
 		stage('App Packeging'){
@@ -57,8 +57,15 @@ pipeline{
 			ansiblePlaybook credentialsId: 'ssh-key', disableHostKeyChecking: true, installation: 'Ansible_home', inventory: '/var/lib/jenkins/workspace/Medical/Terraform-Files/inventory', playbook: 'deploy-minikube.yml'
 			}
 		}
-		
+		stage('Run Application on kubernetes'){
+			steps{
+				sh 'chmod 600 ./Terraform-Files/AssignmentKey.pem'    
+			        sh 'scp -o StrictHostKeyChecking=no -i ./Terraform-Files/AssignmentKey.pem deployApp.yml ubuntu@15.206.147.215:/home/ubuntu/'
+				ansiblePlaybook credentialsId: 'ssh-key', disableHostKeyChecking: true, installation: 'Ansible_home',
+				inventory: '/var/lib/jenkins/workspace/Medical/Terraform-Files/inventory', playbook: 'deployApp.yml'
+			}
+			}
 		}
 	}
-}
+
 
